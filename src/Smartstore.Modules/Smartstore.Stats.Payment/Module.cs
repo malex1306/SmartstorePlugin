@@ -2,7 +2,7 @@
 using Smartstore.Engine.Modularity;
 using Smartstore.Http;
 
-namespace Smartstore.Stats.Payment
+namespace Smartstore.Paymentstats
 {
     public class Module : ModuleBase, IConfigurable
     {

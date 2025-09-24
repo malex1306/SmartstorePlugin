@@ -2,7 +2,7 @@
   "$schema": "../module.schema.json",
   "Author": "SmartStore AG",
   "Group": "Admin",
-  "SystemName": "Smartstore.Stats.Payment",
+  "SystemName": "Smartstore.Paymentstats",
   "FriendlyName": "Smartstore Paymentstats",
   "Description": "Enables show last payment methods",
   "Version": "6.2.0",
