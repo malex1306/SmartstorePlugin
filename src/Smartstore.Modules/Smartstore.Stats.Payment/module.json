@@ -1,0 +1,13 @@
+{
+  "$schema": "../module.schema.json",
+  "Author": "SmartStore AG",
+  "Group": "Admin",
+  "SystemName": "Smartstore.Stats.Payment",
+  "FriendlyName": "Smartstore Paymentstats",
+  "Description": "Enables show last payment methods",
+  "Version": "6.2.0",
+  "MinAppVersion": "6.2.0",
+  "Order": 1,
+  "ResourceRootKey": "Plugins.Smartstore.Stats.Payment",
+  "ProjectUrl": "https://myPayment.com"
+}

@@ -38,6 +38,7 @@
             <!-- Prevents BuildHost folders from being copied into the project -->
             <ExcludeAssets>contentFiles</ExcludeAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
 		<PackageReference Include="System.Runtime.Caching" Version="9.0.8" />
         <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="2.1.11" />
 	</ItemGroup>

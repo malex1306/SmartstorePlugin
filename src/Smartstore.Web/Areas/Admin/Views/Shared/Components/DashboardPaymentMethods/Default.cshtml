@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Smartstore.Admin.Components.PaymentMethodStat>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Zahlungsmethoden</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Bezahlmethode</th>
+                    <th>Anzahl</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var stat in Model)
+                {
+                    <tr>
+                        <td>@stat.MethodFriendlyName</td>
+                        <td>@stat.Count</td>                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
