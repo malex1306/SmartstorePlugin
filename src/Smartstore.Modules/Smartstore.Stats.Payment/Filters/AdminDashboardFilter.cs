@@ -16,10 +16,11 @@ namespace Smartstore.Stats.Filters
 
         public void OnResultExecuting(ResultExecutingContext context)
         {
+            // Nur für Admin/Home/Index
             if (context.Result.IsHtmlViewResult())
             {
                 _widgetProvider.Value.RegisterViewComponent<PaymentStatsDashboardViewComponent>(
-                    ["admin_dashboard_bottom"]);
+                    "admin_dashboard_bottom"); // string statt Array
             }
         }
 

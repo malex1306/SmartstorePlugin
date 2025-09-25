@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using Smartstore.Admin.Controllers;
 using Smartstore.Engine;
 using Smartstore.Engine.Builders;
 using Smartstore.Stats.Filters;
-using Smartstore.Stats.Payment.Controllers.Admin;
+using Smartstore.Admin.Controllers;
 
 namespace Smartstore.Stats.Payment
 {
@@ -19,9 +13,10 @@ namespace Smartstore.Stats.Payment
         {
             services.Configure<MvcOptions>(o =>
             {
+                // Filter für HomeController.Index anhängen
                 o.Filters.AddEndpointFilter<AdminDashboardFilter, HomeController>()
-                .ForController("PaymentStatsAdmin")
-                .ForAction(nameof(PaymentStatsAdminController));
+                    .ForAction(x => x.Index()) 
+                    .WhenNonAjax();          
             });
         }
     }
