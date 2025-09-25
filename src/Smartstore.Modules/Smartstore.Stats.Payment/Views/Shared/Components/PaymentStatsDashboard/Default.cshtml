@@ -1,30 +1,30 @@
-﻿@model IEnumerable<Smartstore.Stats.Payment.Components.PaymentMethodStat>
-@using Smartstore.Core.Localization
+﻿<div class="col-md-12">
+    @* volle Breite *@
+    <div class="report">
+        <div class="report-title-row flex-wrap">
+            <div class="report-title flex-grow-1 mr-3">@T("Admin.Dashboard.PaymentMethods")</div>
+        </div>
 
-<div class="report">
-    <div class="report-title-row flex-wrap">
-        <div class="report-title flex-grow-1 mr-3">@T("Admin.Dashboard.PaymentMethods")</div>
-    </div>
-
-    <div class="table-responsive table-dashboard">
-        <table class="table table-3 small table-hover table-prevent-overflow">
-            <thead>
-                <tr>
-                    <th class="display-row">Bezahlmethode</th>
-                    <th class="display-row text-center">Anzahl</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var stat in Model)
-                {
+        <div class="table-responsive table-dashboard">
+            <table class="table table-2 small table-hover table-prevent-overflow">
+                <thead>
                     <tr>
-                        <td class="display-row" title="@stat.MethodSystemName">
-                            @T($"Plugins.FriendlyName.{stat.MethodSystemName}")
-                        </td>
-                        <td class="display-row text-center" title="@stat.Count">@stat.Count</td>
+                        <th class="display-row">Bezahlmethode</th>
+                        <th class="display-row text-center">Anzahl</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var stat in Model)
+                    {
+                        <tr>
+                            <td class="display-row" title="@stat.MethodSystemName">
+                                @T($"Plugins.FriendlyName.{stat.MethodSystemName}")
+                            </td>
+                            <td class="display-row text-center" title="@stat.Count">@stat.Count</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

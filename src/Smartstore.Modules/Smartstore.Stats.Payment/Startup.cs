@@ -13,7 +13,6 @@ namespace Smartstore.Stats.Payment
         {
             services.Configure<MvcOptions>(o =>
             {
-                // Filter für HomeController.Index anhängen
                 o.Filters.AddEndpointFilter<AdminDashboardFilter, HomeController>()
                     .ForAction(x => x.Index()) 
                     .WhenNonAjax();          
