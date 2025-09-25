@@ -2,9 +2,8 @@
 
 @{
     Layout = "_ConfigureModule";
+    ViewData["Title"] = "Stats Payment - Einstellungen";
 }
-
-@await Component.InvokeAsync("StoreScope")
 
 <widget target-zone="admin_button_toolbar_before">
     <button id="SaveConfigButton" type="submit" name="save" class="btn btn-warning" value="save">
@@ -15,15 +14,22 @@
 
 <form asp-action="Configure">
     <div asp-validation-summary="All"></div>
-    <div class="adminContent">
+
+    <div class="x-plugin-configuration adminContent">
         <div class="adminRow">
             <div class="adminTitle">
                 <smart-label asp-for="Enabled" />
             </div>
             <div class="adminData">
                 <setting-editor asp-for="Enabled"></setting-editor>
-                <span asp-validation-for="Enabled"></span>
+                <span asp-validation-for="Enabled" class="text-danger"></span>
             </div>
         </div>
     </div>
+
+    <div>
+        @await Component.InvokeAsync("PaymentStatsDashboard")
+    </div>
+
 </form>
+

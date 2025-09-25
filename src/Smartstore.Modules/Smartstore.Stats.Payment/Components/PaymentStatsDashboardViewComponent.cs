@@ -1,24 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Smartstore.Admin.Components;
+using Smartstore.Core.Checkout.Payment;
+using Smartstore.Core.Data;
+using Smartstore.Core.Configuration;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Smartstore.Core.Checkout.Payment;
-using Smartstore.Core.Configuration;
-using Smartstore.Core.Data;
 using Smartstore.Core.Security;
-using Smartstore.Data;
-using Smartstore.Web.Components; 
+using Smartstore.Stats.Payment.Settings;
 
 namespace Smartstore.Stats.Payment.Components
 {
-    public class DashboardPaymentMethodsViewComponent : SmartViewComponent
+    public class PaymentStatsDashboardViewComponent : DashboardViewComponentBase
     {
         private readonly SmartDbContext _db;
         private readonly IPaymentService _paymentService;
         private readonly ISettingService _settingService;
+        private readonly PaymentStatsSettings _settings;
 
-        
         private static readonly Dictionary<string, string> PaymentFriendlyNamesFallback = new()
         {
             ["Payments.PayInStore"] = "Barzahlung im Laden",
@@ -27,31 +27,31 @@ namespace Smartstore.Stats.Payment.Components
             ["Payments.CashOnDelivery"] = "Nachnahme"
         };
 
-        public DashboardPaymentMethodsViewComponent(
+        public PaymentStatsDashboardViewComponent(
             SmartDbContext db,
             IPaymentService paymentService,
-            ISettingService settingService)
+            ISettingService settingService,
+            PaymentStatsSettings settings)
         {
             _db = db;
             _paymentService = paymentService;
             _settingService = settingService;
+            _settings = settings;
         }
 
-        public override async Task<IViewComponentResult> InvokeAsync(object args)
+        public override async Task<IViewComponentResult> InvokeAsync()
         {
-            // Nur anzeigen, wenn das Plugin aktiviert ist
-            var enabled = await _settingService.GetSettingByKeyAsync("Smartstore.Stats.Payment.Enabled", true);
-            if (!enabled)
-                return Content(string.Empty);
 
-            // Permission prüfen
+            var enabled = _settings.Enabled;
+
+
+            if (!enabled)
+                return Empty();
+
             if (!await Services.Permissions.AuthorizeAsync(Permissions.Order.Read))
                 return Empty();
 
-            // Alle Payment-Provider laden
             var allProviders = await _paymentService.LoadAllPaymentProvidersAsync(onlyEnabled: false);
-
-            // Stats aus DB laden
             var stats = await _db.Orders
                 .AsNoTracking()
                 .Where(x => !string.IsNullOrEmpty(x.PaymentMethodSystemName))
@@ -64,11 +64,9 @@ namespace Smartstore.Stats.Payment.Components
                 })
                 .ToListAsync();
 
-            // FriendlyName ermitteln
             foreach (var stat in stats)
             {
                 var provider = allProviders.FirstOrDefault(p => p.Metadata.SystemName == stat.MethodSystemName);
-
                 stat.MethodFriendlyName = provider?.Metadata?.FriendlyName
                     ?? (PaymentFriendlyNamesFallback.TryGetValue(stat.MethodSystemName, out var friendly)
                         ? friendly
@@ -77,6 +75,7 @@ namespace Smartstore.Stats.Payment.Components
 
             return View(stats);
         }
+    
     }
 
     public class PaymentMethodStat

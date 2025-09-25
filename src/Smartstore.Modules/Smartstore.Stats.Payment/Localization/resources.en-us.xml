@@ -1,11 +1,3 @@
 ﻿<Language Name="English" IsDefault="false" IsRightToLeft="false">
-    <LocaleResource Name="Plugins.FriendlyName.Smartstore.Stats.Payment" AppendRootKey="false">
-        <Value>Payment Stats</Value>
-    </LocaleResource>
-    <LocaleResource Name="Plugins.Description.Smartstore.Stats.Payment" AppendRootKey="false">
-        <Value>Shows the last payment methods used</Value>
-    </LocaleResource>
-    <LocaleResource Name="Fields.Enabled">
-        <Value>Enabled</Value>
-    </LocaleResource>
+    
 </Language>

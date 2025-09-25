@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Smartstore.ComponentModel;
 using Smartstore.Core.Security;
 using Smartstore.Stats.Payment.Settings;
@@ -11,16 +6,15 @@ using Smartstore.Web.Controllers;
 using Smartstore.Web.Modelling.Settings;
 using Smartstore.Stats.Payment.Models;
 
-namespace Smartstore.Stats.Payment.Controllers
+namespace Smartstore.Stats.Payment.Controllers.Admin
 {
-    public class PaymentStatsController : AdminController
+    public class PaymentStatsAdminController : AdminController
     {
         [LoadSetting, AuthorizeAdmin]
         public IActionResult Configure(PaymentStatsSettings settings)
         {
             var model = MiniMapper.Map<PaymentStatsSettings, ConfigurationModel>(settings);
-            
-              return View(model);
+            return View(model);
         }
 
         [HttpPost, SaveSetting, AuthorizeAdmin]
@@ -34,8 +28,9 @@ namespace Smartstore.Stats.Payment.Controllers
             ModelState.Clear();
             MiniMapper.Map(model, settings);
 
+            TempData["Success"] = T("Admin.Common.ChangesSaved");
+
             return RedirectToAction(nameof(Configure));
         }
-
     }
 }

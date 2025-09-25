@@ -1,20 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
-
-  <PropertyGroup>
-      <Product>Smartstore Paymentstats</Product>
-      <OutputPath>..\..\Smartstore.Web\Modules\Smartstore.Stats.Payment</OutputPath>
-      <OutDir>$(Outputpath)</OutDir>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <Content Remove="Views\Components\Dafault.cshtml" />
-    <Content Remove="Views\PaymentStats\Configure.cshtml" />
-    <Content Remove="Views\_ViewImports.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Localization\resources.en-us.xml" />
-    <None Remove="module.json" />
-  </ItemGroup>
-
+    <PropertyGroup>
+        <Product>Smartstore Stats Payment</Product>
+        <OutputPath>..\..\Smartstore.Web\Modules\Smartstore.Stats.Payment</OutputPath>
+        <OutDir>$(OutputPath)</OutDir>
+    </PropertyGroup>
+    <ItemGroup>
+      <Content Remove="Views\Shared\Components\NewContactDashboard\Default.cshtml" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\Smartstore.Web\Smartstore.Web.csproj">
+            <Private>False</Private>
+            <CopyLocal>False</CopyLocal>
+            <CopyLocalSatelliteAssemblies>False</CopyLocalSatelliteAssemblies>
+        </ProjectReference>
+    </ItemGroup>
 </Project>

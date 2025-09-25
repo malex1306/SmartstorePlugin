@@ -85,7 +85,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smartstore.Data.Sqlite", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smartstore.Apple.Auth", "src\Smartstore.Modules\Smartstore.Apple.Auth\Smartstore.Apple.Auth.csproj", "{A7E56AC6-2ECF-029F-4CA1-522EAE8AE087}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smartstore.Stats.Payment", "src\Smartstore.Modules\Smartstore.Stats.Payment\Smartstore.Stats.Payment.csproj", "{78A6AC49-30F2-438E-BEC2-D017C9874F17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smartstore.Stats.Payment", "src\Smartstore.Modules\Smartstore.Stats.Payment\Smartstore.Stats.Payment.csproj", "{CFEC2908-84FB-4102-8513-5F338C9F2A32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -280,12 +280,12 @@ Global
 		{A7E56AC6-2ECF-029F-4CA1-522EAE8AE087}.DebugNoRazorCompile|Any CPU.Build.0 = DebugNoRazorCompile|Any CPU
 		{A7E56AC6-2ECF-029F-4CA1-522EAE8AE087}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7E56AC6-2ECF-029F-4CA1-522EAE8AE087}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78A6AC49-30F2-438E-BEC2-D017C9874F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78A6AC49-30F2-438E-BEC2-D017C9874F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78A6AC49-30F2-438E-BEC2-D017C9874F17}.DebugNoRazorCompile|Any CPU.ActiveCfg = DebugNoRazorCompile|Any CPU
-		{78A6AC49-30F2-438E-BEC2-D017C9874F17}.DebugNoRazorCompile|Any CPU.Build.0 = DebugNoRazorCompile|Any CPU
-		{78A6AC49-30F2-438E-BEC2-D017C9874F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78A6AC49-30F2-438E-BEC2-D017C9874F17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFEC2908-84FB-4102-8513-5F338C9F2A32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFEC2908-84FB-4102-8513-5F338C9F2A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFEC2908-84FB-4102-8513-5F338C9F2A32}.DebugNoRazorCompile|Any CPU.ActiveCfg = DebugNoRazorCompile|Any CPU
+		{CFEC2908-84FB-4102-8513-5F338C9F2A32}.DebugNoRazorCompile|Any CPU.Build.0 = DebugNoRazorCompile|Any CPU
+		{CFEC2908-84FB-4102-8513-5F338C9F2A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFEC2908-84FB-4102-8513-5F338C9F2A32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -318,7 +318,7 @@ Global
 		{1A016177-D0EA-49AD-9BD5-BAD99D9D08F9} = {82A38DDA-C944-4C15-AF43-86732F8ED15A}
 		{32683DB7-C20D-4ABD-BE90-569168B2A68F} = {82A38DDA-C944-4C15-AF43-86732F8ED15A}
 		{A7E56AC6-2ECF-029F-4CA1-522EAE8AE087} = {E5C1AA43-6B44-4EFA-8DE9-6070EE007CE3}
-		{78A6AC49-30F2-438E-BEC2-D017C9874F17} = {E5C1AA43-6B44-4EFA-8DE9-6070EE007CE3}
+		{CFEC2908-84FB-4102-8513-5F338C9F2A32} = {E5C1AA43-6B44-4EFA-8DE9-6070EE007CE3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A0A0B995-5D0B-458E-BCC0-1071B76949D1}
