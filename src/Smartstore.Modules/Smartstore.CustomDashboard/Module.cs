@@ -4,9 +4,9 @@ using Smartstore.Core.Widgets;
 using Smartstore.Engine;
 using Smartstore.Engine.Modularity;
 using Smartstore.Http;
-using Smartstore.Stats.Payment.Components;
+using Smartstore.CustomDashboard.Components;
 
-namespace Smartstore.Stats.Payment
+namespace Smartstore.CustomDashboard
 {
     internal class Module : ModuleBase, IConfigurable
     {
