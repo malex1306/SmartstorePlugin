@@ -12,9 +12,7 @@
     </button>
 </widget>
 
-<form asp-action="Configure">
-    <div asp-validation-summary="All"></div>
-
+<form asp-action="Configure" method="post">
     <div class="x-plugin-configuration adminContent">
         <div class="adminRow">
             <div class="adminTitle">
@@ -22,24 +20,18 @@
             </div>
             <div class="adminData">
                 <setting-editor asp-for="Enabled"></setting-editor>
-                <span asp-validation-for="Enabled" class="text-danger"></span>
             </div>
         </div>
-    </div>
-</form>
-<form asp-action="Configure">
-    <div asp-validation-summary="All"></div>
 
-    <div class="x-plugin-configuration adminContent">
         <div class="adminRow">
             <div class="adminTitle">
                 <smart-label asp-for="EnabledEmail" />
             </div>
             <div class="adminData">
                 <setting-editor asp-for="EnabledEmail"></setting-editor>
-                <span asp-validation-for="EnabledEmail" class="text-danger"></span>
             </div>
         </div>
     </div>
 </form>
+
 

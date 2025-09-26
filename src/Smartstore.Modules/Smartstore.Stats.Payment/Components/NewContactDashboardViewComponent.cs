@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol.Plugins;
 using Smartstore.Admin.Components;
 using Smartstore.Core.Data;
 using Smartstore.Core.Messaging;
@@ -19,7 +20,7 @@ namespace Smartstore.Stats.Payment.Components
 
         public NewContactDashboardViewComponent(
             SmartDbContext db,
-            PaymentStatsSettings settings)
+            PaymentStatsSettings settings) 
         {
             _db = db;
             _settings = settings;
@@ -30,23 +31,23 @@ namespace Smartstore.Stats.Payment.Components
             if (!_settings.EnabledEmail)
                 return Empty();
 
-            if (!await Services.Permissions.AuthorizeAsync(Permissions.Order.Read))
-                return Empty();
+            //if (!await Services.Permissions.AuthorizeAsync(Permissions.Order.Read))
+            //    return Empty();
 
             var contacts = await _db.QueuedEmails
                 .AsNoTracking()
                 .Where(x => !string.IsNullOrEmpty(x.Subject))
                 .OrderByDescending(x => x.CreatedOnUtc)
-                .Take(10)
+                .Take(5)
                 .Select(x => new ContactEmail
                 {
-                    Email = x.From,        
+                    Email = x.From,
                     Subject = x.Subject,
                     CreatedOn = x.CreatedOnUtc
                 })
                 .ToListAsync();
 
-            return View(contacts);
+            return View("Default", contacts);
         }
     }
 
