@@ -2,7 +2,7 @@
 
 @{
     Layout = "_ConfigureModule";
-    ViewData["Title"] = "Stats Payment - Einstellungen";
+    ViewData["Title"] = "Dashboard Einstellungen";
 }
 
 <widget target-zone="admin_button_toolbar_before">
@@ -23,6 +23,21 @@
             <div class="adminData">
                 <setting-editor asp-for="Enabled"></setting-editor>
                 <span asp-validation-for="Enabled" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+</form>
+<form asp-action="Configure">
+    <div asp-validation-summary="All"></div>
+
+    <div class="x-plugin-configuration adminContent">
+        <div class="adminRow">
+            <div class="adminTitle">
+                <smart-label asp-for="EnabledEmail" />
+            </div>
+            <div class="adminData">
+                <setting-editor asp-for="EnabledEmail"></setting-editor>
+                <span asp-validation-for="EnabledEmail" class="text-danger"></span>
             </div>
         </div>
     </div>

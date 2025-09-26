@@ -56,6 +56,7 @@ namespace Smartstore.Stats.Payment.Components
                 .AsNoTracking()
                 .Where(x => !string.IsNullOrEmpty(x.PaymentMethodSystemName))
                 .GroupBy(o => o.PaymentMethodSystemName)
+                .Take(10)
                 .Select(g => new PaymentMethodStat
                 {
                     MethodSystemName = g.Key,

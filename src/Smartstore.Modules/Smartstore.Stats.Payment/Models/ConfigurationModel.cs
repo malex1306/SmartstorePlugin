@@ -7,5 +7,8 @@ namespace Smartstore.Stats.Payment.Models
     {
         [LocalizedDisplay("*Enabled")]
         public bool Enabled { get; set; }
+
+        [LocalizedDisplay("*EnabledEmail")]
+        public bool EnabledEmail { get; set; }
     }
 }

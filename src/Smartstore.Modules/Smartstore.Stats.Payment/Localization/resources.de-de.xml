@@ -8,5 +8,10 @@
     <LocaleResource Name="Dashboard.PaymentMethods" >
         <Value>Bezahlmethoden</Value>
     </LocaleResource>
-
+    <LocaleResource Name="EnabledEmail">
+        <Value>Aktiviert</Value>
+    </LocaleResource>
+    <LocaleResource Name="EnabledEmail.Hint">
+        <Value>Anzeige der Kontakt Emails.</Value>
+    </LocaleResource>
 </Language>
