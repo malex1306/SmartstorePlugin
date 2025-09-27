@@ -2,12 +2,12 @@
   "$schema": "../module.schema.json",
   "Author": "Marcel",
   "Group": "Admin",
-  "SystemName": "Smartstore.Stats.Payment",
-  "FriendlyName": "Zahlungsmethoden-Statistik",
+  "SystemName": "Smartstore.CustomDashboard",
+  "FriendlyName": "Dashboard Customizations",
   "Description": "Zeigt im Dashboard eine Übersicht der bei Bestellungen verwendeten Zahlungsmethoden.",
   "Version": "6.2.0",
   "MinAppVersion": "6.2.0",
   "Order": 1,
-  "ResourceRootKey": "Plugins.Stats.Payment",
+  "ResourceRootKey": "Plugins.CustomDashboard",
   "ProjectUrl": "https://myOrg.com"
 }

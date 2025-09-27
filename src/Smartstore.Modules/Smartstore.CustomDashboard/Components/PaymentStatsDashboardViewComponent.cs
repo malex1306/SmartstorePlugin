@@ -8,9 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Smartstore.Core.Security;
-using Smartstore.Stats.Payment.Settings;
+using Smartstore.CustomDashboard.Settings;
 
-namespace Smartstore.Stats.Payment.Components
+namespace Smartstore.CustomDashboard.Components
 {
     public class PaymentStatsDashboardViewComponent : DashboardViewComponentBase
     {
@@ -76,8 +76,10 @@ namespace Smartstore.Stats.Payment.Components
 
             return View(stats);
         }
-    
+
     }
+
+
 
     public class PaymentMethodStat
     {

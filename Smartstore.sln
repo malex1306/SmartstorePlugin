@@ -85,7 +85,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smartstore.Data.Sqlite", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smartstore.Apple.Auth", "src\Smartstore.Modules\Smartstore.Apple.Auth\Smartstore.Apple.Auth.csproj", "{A7E56AC6-2ECF-029F-4CA1-522EAE8AE087}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smartstore.Stats.Payment", "src\Smartstore.Modules\Smartstore.Stats.Payment\Smartstore.Stats.Payment.csproj", "{CFEC2908-84FB-4102-8513-5F338C9F2A32}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smartstore.CustomDashboard", "src\Smartstore.Modules\Smartstore.CustomDashboard\Smartstore.CustomDashboard.csproj", "{CFEC2908-84FB-4102-8513-5F338C9F2A32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Smartstore.Admin.Controllers;
+using Smartstore.CustomDashboard;
 using Smartstore.CustomDashboard.Filters;
 using Smartstore.Engine;
 using Smartstore.Engine.Builders;
-using Smartstore.Stats.Filters;
 
-namespace Smartstore.Stats.Payment
+namespace Smartstore.CustomDashboard
 {
     internal class Startup : StarterBase
     {

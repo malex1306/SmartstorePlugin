@@ -39,7 +39,7 @@ namespace Smartstore.CustomDashboard.Filters
             context.Result = new PartialViewResult
             {
                 //ViewData = myViewData,
-                ViewName = "~/Modules/Smartstore.Stats.Payment/Views/Shared/HelloWorld.cshtml"
+                ViewName = "~/Modules/Smartstore.CustomDashboard/Views/Shared/HelloWorld.cshtml"
             };
 
             //if (filterContext.Result is ViewResult)
