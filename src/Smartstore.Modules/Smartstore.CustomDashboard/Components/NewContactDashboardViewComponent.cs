@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol.Plugins;
+using Smartstore;
 using Smartstore.Admin.Components;
 using Smartstore.Core.Data;
 using Smartstore.Core.Messaging;
 using Smartstore.Core.Security;
-using Smartstore.Stats.Payment.Settings;
+using Smartstore.CustomDashboard.Settings;
 
-namespace Smartstore.Stats.Payment.Components
+namespace Smartstore.CustomDashboard.Components
 {
     public class NewContactDashboardViewComponent : DashboardViewComponentBase
     {
@@ -20,7 +21,7 @@ namespace Smartstore.Stats.Payment.Components
 
         public NewContactDashboardViewComponent(
             SmartDbContext db,
-            PaymentStatsSettings settings) 
+            PaymentStatsSettings settings)
         {
             _db = db;
             _settings = settings;
@@ -50,6 +51,9 @@ namespace Smartstore.Stats.Payment.Components
             return View("Default", contacts);
         }
     }
+
+
+
 
     public class ContactEmail
     {

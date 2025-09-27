@@ -2,9 +2,8 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Smartstore.Core.Widgets;
 using Smartstore.CustomDashboard.Components;
-using Smartstore.Stats.Payment.Components;
 
-namespace Smartstore.Stats.Filters
+namespace Smartstore.CustomDashboard
 {
     public class PaymentStatsDashboardFilter : IResultFilter
     {
@@ -17,13 +16,13 @@ namespace Smartstore.Stats.Filters
 
         public void OnResultExecuting(ResultExecutingContext context)
         {
-            // Nur für Admin/Home/Index
+            
             if (context.Result.IsHtmlViewResult())
             {
-                _widgetProvider.Value.RegisterViewComponent<Smartstore.Stats.Payment.Components.PaymentStatsDashboardViewComponent>(
+                _widgetProvider.Value.RegisterViewComponent<CustomDashboard.Components.PaymentStatsDashboardViewComponent>(
                     "admin_dashboard_bottom");
 
-                _widgetProvider.Value.RegisterViewComponent<Smartstore.Stats.Payment.Components.NewContactDashboardViewComponent>(
+                _widgetProvider.Value.RegisterViewComponent<CustomDashboard.Components.NewContactDashboardViewComponent>(
                     "admin_dashboard_top");
 
             }

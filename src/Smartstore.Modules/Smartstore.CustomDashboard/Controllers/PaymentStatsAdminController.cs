@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Smartstore.ComponentModel;
 using Smartstore.Core.Security;
-using Smartstore.Stats.Payment.Settings;
+using Smartstore.CustomDashboard.Settings;
 using Smartstore.Web.Controllers;
 using Smartstore.Web.Modelling.Settings;
-using Smartstore.Stats.Payment.Models;
+using Smartstore.CustomDashboard.Models;
 
-namespace Smartstore.Stats.Payment.Controllers.Admin
+namespace Smartstore.CustomDashboard.Controllers.Admin
 {
     public class PaymentStatsAdminController : AdminController
     {

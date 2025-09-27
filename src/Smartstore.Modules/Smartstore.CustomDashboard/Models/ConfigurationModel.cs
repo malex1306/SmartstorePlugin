@@ -1,8 +1,8 @@
 ﻿using Smartstore.Web.Modelling;
 
-namespace Smartstore.Stats.Payment.Models
+namespace Smartstore.CustomDashboard.Models
 {
-    [LocalizedDisplay("Plugins.Stats.Payment.")]
+    [LocalizedDisplay("Plugins.CustomDashboard.")]
     public class ConfigurationModel : ModelBase
     {
         [LocalizedDisplay("*Enabled")]

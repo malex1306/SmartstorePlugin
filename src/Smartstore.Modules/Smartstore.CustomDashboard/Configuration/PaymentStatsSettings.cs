@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Smartstore.Core.Configuration;
 
-namespace Smartstore.Stats.Payment.Settings
+namespace Smartstore.CustomDashboard.Settings
 {
         public class PaymentStatsSettings : ISettings
         {

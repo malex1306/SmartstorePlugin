@@ -1,0 +1,41 @@
+﻿@using Smartstore.CustomDashboard.Components
+@model List<ContactEmail>
+
+    <div class="dashboard">
+<div class="report">
+    <div class="report-title-row">
+        <div class="report-title">
+            <i class="fa fa-envelope"></i>
+            <span>@T("Plugins.CustomDashboard.Admin.Dashboard.NewContacts")</span>
+        </div>
+    </div>
+
+    <div class="report-body">
+        <div class="table-responsive table-dashboard">
+            <table class="table table-hover table-prevent-overflow">
+                <thead>
+                    <tr>
+                        <th>@T("Common.Email")</th>
+                        <th>@T("Common.Date")</th>
+                        <th>@T("Common.Action")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Email</td>
+                            <td>@item.CreatedOn.ToLocalTime().ToString("g")</td>
+                            <td>
+                                <a href="mailto:@item.Email">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>

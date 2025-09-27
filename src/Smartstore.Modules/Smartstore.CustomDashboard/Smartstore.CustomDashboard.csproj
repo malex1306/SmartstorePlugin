@@ -5,6 +5,9 @@
         <OutDir>$(OutputPath)</OutDir>
     </PropertyGroup>
     <ItemGroup>
+      <Content Remove="Views\Shared\Components\NewContactDashboard\Default.cshtml" />
+    </ItemGroup>
+    <ItemGroup>
         <ProjectReference Include="..\..\Smartstore.Web\Smartstore.Web.csproj">
             <Private>False</Private>
             <CopyLocal>False</CopyLocal>
