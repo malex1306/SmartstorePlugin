@@ -13,12 +13,19 @@
 <div class="dashboard-grid">
     <zone name="admin_dashboard_top"></zone>
 
-    @* <div class="report-incomplete-orders">
-        @await Component.InvokeAsync("DashboardIncompleteOrders")
-    </div> *@
+     <div class="report-incomplete-orders"> 
+     @await Component.InvokeAsync("DashboardIncompleteOrders") 
+     </div> 
     <div class="report-orders">
         @await Component.InvokeAsync("DashboardOrders")
     </div>
+    <div class="report-payments">
+        <zone name="report-bestsellers"></zone>
+    </div>
+    <div class="report-last-contacts">
+        <zone name="report-contacts"></zone>
+    </div>
+
     <div class="report-bestsellers">
         @await Component.InvokeAsync("DashboardBestsellers")
     </div>

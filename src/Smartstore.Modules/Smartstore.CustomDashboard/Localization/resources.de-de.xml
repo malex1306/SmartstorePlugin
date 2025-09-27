@@ -1,6 +1,6 @@
 ﻿<Language Name="Deutsch" IsDefault="true" IsRightToLeft="false">
     <LocaleResource Name="Enabled">
-        <Value>Aktiviert</Value>
+        <Value>Bezahlmethoden aktivieren</Value>
     </LocaleResource>
     <LocaleResource Name="Enabled.Hint">
         <Value>Anzeige der Bezahlmethoden.</Value>
@@ -8,8 +8,11 @@
     <LocaleResource Name="Dashboard.PaymentMethods" >
         <Value>Bezahlmethoden</Value>
     </LocaleResource>
+    <LocaleResource Name="Dashboard.Payments" >
+        <Value>Bezahlarten</Value>
+    </LocaleResource>
     <LocaleResource Name="EnabledEmail">
-        <Value>Aktiviert</Value>
+        <Value>Neue Kontakte aktivieren</Value>
     </LocaleResource>
     <LocaleResource Name="EnabledEmail.Hint">
         <Value>Anzeige der Kontakt Emails.</Value>

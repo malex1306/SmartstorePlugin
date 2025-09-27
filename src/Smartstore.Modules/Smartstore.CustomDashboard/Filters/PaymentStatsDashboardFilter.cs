@@ -20,10 +20,10 @@ namespace Smartstore.CustomDashboard
             if (context.Result.IsHtmlViewResult())
             {
                 _widgetProvider.Value.RegisterViewComponent<CustomDashboard.Components.PaymentStatsDashboardViewComponent>(
-                    "admin_dashboard_bottom");
+                    "report-bestsellers");
 
                 _widgetProvider.Value.RegisterViewComponent<CustomDashboard.Components.NewContactDashboardViewComponent>(
-                    "admin_dashboard_top");
+                    "report-contacts");
 
             }
         }
