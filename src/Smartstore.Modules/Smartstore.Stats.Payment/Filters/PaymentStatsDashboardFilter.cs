@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Smartstore.Core.Widgets;
 using Smartstore.CustomDashboard.Components;
+using Smartstore.Stats.Payment.Components;
 
 namespace Smartstore.Stats.Filters
 {
@@ -19,8 +20,12 @@ namespace Smartstore.Stats.Filters
             // Nur für Admin/Home/Index
             if (context.Result.IsHtmlViewResult())
             {
-                _widgetProvider.Value.RegisterViewComponent<PaymentStatsDashboardViewComponent>(
-                    "admin_dashboard_bottom"); // string statt Array
+                _widgetProvider.Value.RegisterViewComponent<Smartstore.Stats.Payment.Components.PaymentStatsDashboardViewComponent>(
+                    "admin_dashboard_bottom");
+
+                _widgetProvider.Value.RegisterViewComponent<Smartstore.Stats.Payment.Components.NewContactDashboardViewComponent>(
+                    "admin_dashboard_top");
+
             }
         }
 

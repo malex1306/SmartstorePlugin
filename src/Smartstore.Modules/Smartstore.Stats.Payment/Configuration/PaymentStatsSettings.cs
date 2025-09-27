@@ -10,5 +10,6 @@ namespace Smartstore.Stats.Payment.Settings
         public class PaymentStatsSettings : ISettings
         {
             public bool Enabled { get; set; } = true;
+            public bool EnabledEmail { get; set; } = true;
         }
 }

@@ -8,7 +8,7 @@
 //using Smartstore.Core.Data;
 //using Smartstore.Core.Security;
 
-//namespace Smartstore.CustomDashboard.Components
+//namespace Smartstore.Stats.Payment.Components
 //{
 //    public class NewContactDashboardViewComponent : DashboardViewComponentBase
 //    {

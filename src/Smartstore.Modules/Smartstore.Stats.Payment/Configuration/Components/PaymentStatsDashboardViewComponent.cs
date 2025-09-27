@@ -75,7 +75,7 @@ namespace Smartstore.CustomDashboard.Components
 
             return View(stats);
         }
-    
+
     }
 
     public class PaymentMethodStat
