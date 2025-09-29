@@ -4,7 +4,7 @@
 <div class="report">
     <div class="report-title-row">
         <div class="report-title">
-            @T("Plugins.CustomDashboard.Admin.Dashboard.NewContacts")
+            @T("Plugins.CustomDashboard.Dashboard.NewContacts")
         </div>
     </div>
 
@@ -13,9 +13,9 @@
             <table class="table table-hover table-prevent-overflow">
                 <thead>
                     <tr>
-                        <th>@T("Common.Email")</th>
-                        <th>@T("Common.Date")</th>
-                        <th>@T("Common.Action")</th>
+                        <th>@T("Plugins.CustomDashboard.Dashboard.Email")</th>
+                        <th class="text-center">@T("Common.Date")</th>
+                        <th class="text-center">@T("Plugins.CustomDashboard.Dashboard.Replay")</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,8 +23,8 @@
                     {
                         <tr>
                             <td>@item.Email</td>
-                            <td>@item.CreatedOn.ToLocalTime().ToString("g")</td>
-                            <td>
+                            <td class="text-center">@item.CreatedOn.ToLocalTime().ToString("g")</td>
+                            <td class="text-center">
                                 <a href="mailto:@item.Email">
                                     <i class="fas fa-envelope"></i>
                                 </a>

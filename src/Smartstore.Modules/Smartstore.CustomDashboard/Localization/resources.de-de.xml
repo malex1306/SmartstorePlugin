@@ -11,10 +11,22 @@
     <LocaleResource Name="Dashboard.Payments" >
         <Value>Bezahlarten</Value>
     </LocaleResource>
+    <LocaleResource Name="Dashboard.PaymentsCount" >
+        <Value>Anzahl</Value>
+    </LocaleResource>
     <LocaleResource Name="EnabledEmail">
         <Value>Neue Kontakte aktivieren</Value>
     </LocaleResource>
     <LocaleResource Name="EnabledEmail.Hint">
         <Value>Anzeige der Kontakt Emails.</Value>
+    </LocaleResource>
+    <LocaleResource Name="Dashboard.NewContacts">
+        <Value>Neue Anfragen</Value>
+    </LocaleResource>
+    <LocaleResource Name="Dashboard.Email">
+        <Value>Absender</Value>
+    </LocaleResource>
+    <LocaleResource Name="Dashboard.Replay">
+        <Value>Antworten</Value>
     </LocaleResource>
 </Language>

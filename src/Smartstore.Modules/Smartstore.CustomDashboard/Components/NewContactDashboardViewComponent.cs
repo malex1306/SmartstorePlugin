@@ -37,12 +37,13 @@ namespace Smartstore.CustomDashboard.Components
 
             var contacts = await _db.QueuedEmails
                 .AsNoTracking()
-                .Where(x => !string.IsNullOrEmpty(x.Subject))
+                .Where(x => !string.IsNullOrEmpty(x.Subject)
+                && x.Subject.Contains("Kontaktanfrage"))
                 .OrderByDescending(x => x.CreatedOnUtc)
                 .Take(5)
                 .Select(x => new ContactEmail
                 {
-                    Email = x.From,
+                    Email = x.ReplyTo,
                     Subject = x.Subject,
                     CreatedOn = x.CreatedOnUtc
                 })

@@ -4,8 +4,8 @@
 @{
     Layout = "_AdminLayout";
 
-    // Verwende den exakten, physischen Pfad zu deiner CSS-Datei.
-    var cssPath = @"C:\Users\alexa\source\repos\SmartstorePlugin\src\Smartstore.Modules\Smartstore.CustomDashboard\wwwroot\admin\_custom-dashboard.css";
+    
+    var cssPath = @"C:\Users\Marcel Alexandre\source\repos\smartstore\src\Smartstore.Modules\Smartstore.CustomDashboard\wwwroot\admin\_custom-dashboard.css";
     var cssContent = System.IO.File.ReadAllText(cssPath);
 }
 
@@ -26,12 +26,12 @@
 <div class="dashboard-grid">
     <zone name="admin_dashboard_top"></zone>
 
-     <div class="report-incomplete-orders"> 
+     @* <div class="report-incomplete-orders"> 
      @await Component.InvokeAsync("DashboardIncompleteOrders") 
-     </div> 
-    @* <div class="report-orders">
+     </div>  *@
+    <div class="report-orders">
         @await Component.InvokeAsync("DashboardOrders")
-    </div> *@
+    </div> 
     <div class="report-payments">
         <zone name="report-bestsellers"></zone>
     </div>
@@ -39,9 +39,9 @@
         <zone name="report-contacts"></zone>
     </div>
 
-    @* <div class="report-bestsellers">
+    <div class="report-bestsellers">
         @await Component.InvokeAsync("DashboardBestsellers")
-    </div>
+    </div> 
     <div class="report-top-customers">
         @await Component.InvokeAsync("DashboardTopCustomers")
     </div>
@@ -50,10 +50,10 @@
     </div>
     <div class="report-latest-orders">
         @await Component.InvokeAsync("DashboardLatestOrders")
-    </div> *@
-    @* <div class="report-store-statistics">
+    </div> 
+    <div class="report-store-statistics">
         <partial name="~/Areas/Admin/Views/Store/StoreDashboardReport.cshtml" />
-    </div> *@
+    </div>
     <div class="news-feed">
         @await Component.InvokeAsync("NewsFeed")
     </div>

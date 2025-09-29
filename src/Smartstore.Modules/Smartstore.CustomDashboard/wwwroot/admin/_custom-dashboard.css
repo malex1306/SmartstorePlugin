@@ -521,11 +521,11 @@ Please edit the SCSS file instead.
     grid-row: 2/3;
   }
   .report-payments {
-    grid-column: 1/7;
+    grid-column: 7/11;
     grid-row: 5/8;
   }
   .report-last-contacts {
-    grid-column: 7/11;
+    grid-column: 1/7; 
     grid-row: 5/8;
   }
   .report-top-customers {
