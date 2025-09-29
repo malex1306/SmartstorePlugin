@@ -24,6 +24,8 @@ namespace Smartstore.CustomDashboard
 
                 _widgetProvider.Value.RegisterViewComponent<CustomDashboard.Components.NewContactDashboardViewComponent>(
                     "report-contacts");
+                _widgetProvider.Value.RegisterViewComponent<CustomDashboard.Components.DashboardWidgetSwitcherViewComponent>(
+                    "dashboard-widget-switcher");
 
             }
         }

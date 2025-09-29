@@ -1,0 +1,25 @@
+﻿<div class="dashboard-widget-switcher">
+    <select id="widgetSelector" class="form-control mb-2">
+        <option value="NewContacts">Neue Kontakte</option>
+        <option value="PaymentStats">Zahlungsmethoden</option>
+    </select>
+
+    <div id="widgetSwitcherContent">
+        @await Component.InvokeAsync("NewContactDashboard")
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const selector = document.getElementById('widgetSelector');
+        const content = document.getElementById('widgetSwitcherContent');
+
+        selector.addEventListener('change', async () => {
+            const widget = selector.value;
+            const html = await fetch(`/Admin/CustomDashboard/LoadWidget?widgetName=${widget}`)
+                .then(r => r.text());
+
+            content.innerHTML = html;
+        });
+    </script>
+}
