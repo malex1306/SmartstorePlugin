@@ -54,8 +54,9 @@
     <div class="report-store-statistics">
         <partial name="~/Areas/Admin/Views/Store/StoreDashboardReport.cshtml" />
     </div>
+   
     <div class="news-feed">
-        @await Component.InvokeAsync("NewsFeed")
+        <zone name="report-newsfeed"></zone>
     </div>
 
     <zone name="admin_dashboard_bottom"></zone>

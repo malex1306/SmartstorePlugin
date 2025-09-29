@@ -11,5 +11,6 @@ namespace Smartstore.CustomDashboard.Settings
         {
             public bool Enabled { get; set; } = true;
             public bool EnabledEmail { get; set; } = true;
+            public bool EnabledNewsFeed { get; set; } = true;
         }
 }

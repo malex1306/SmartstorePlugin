@@ -10,5 +10,8 @@ namespace Smartstore.CustomDashboard.Models
 
         [LocalizedDisplay("*EnabledEmail")]
         public bool EnabledEmail { get; set; }
+
+        [LocalizedDisplay("*EnabledNewsFeed")]
+        public bool EnabledNewsFeed { get; set; }
     }
 }
