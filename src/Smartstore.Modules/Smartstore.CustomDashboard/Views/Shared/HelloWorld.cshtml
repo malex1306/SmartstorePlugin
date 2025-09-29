@@ -1,20 +1,8 @@
-﻿@using System.IO
-@using Smartstore.Core.Web
+﻿@using Smartstore.Core.Web
 
 @{
     Layout = "_AdminLayout";
-
-    
-    var cssPath = @"C:\Users\Marcel Alexandre\source\repos\smartstore\src\Smartstore.Modules\Smartstore.CustomDashboard\wwwroot\admin\_custom-dashboard.css";
-    var cssContent = System.IO.File.ReadAllText(cssPath);
 }
-
-<style>
-    @Html.Raw(cssContent)
-</style>
-
-
-
 
 <div class="section-header">
     <div class="title">
@@ -24,40 +12,23 @@
 </div>
 
 <div class="dashboard-grid">
-    <zone name="admin_dashboard_top"></zone>
-
-     @* <div class="report-incomplete-orders"> 
-     @await Component.InvokeAsync("DashboardIncompleteOrders") 
-     </div>  *@
-    <div class="report-orders">
-        @await Component.InvokeAsync("DashboardOrders")
-    </div> 
-    <div class="report-payments">
-        <zone name="report-bestsellers"></zone>
-    </div>
-    <div class="report-last-contacts">
-        <zone name="report-contacts"></zone>
-    </div>
-
-    <div class="report-bestsellers">
-        @await Component.InvokeAsync("DashboardBestsellers")
-    </div> 
-    <div class="report-top-customers">
-        @await Component.InvokeAsync("DashboardTopCustomers")
-    </div>
-    <div class="report-customer-registrations">
-        @await Component.InvokeAsync("DashboardRegisteredCustomers")
-    </div>
-    <div class="report-latest-orders">
-        @await Component.InvokeAsync("DashboardLatestOrders")
-    </div> 
-    <div class="report-store-statistics">
-        <partial name="~/Areas/Admin/Views/Store/StoreDashboardReport.cshtml" />
-    </div>
-   
-    <div class="news-feed">
-        <zone name="report-newsfeed"></zone>
-    </div>
-
-    <zone name="admin_dashboard_bottom"></zone>
+    @* Das ist das leere Raster, in das die Widgets geladen werden *@
+    @for (int row = 1; row <= 5; row++)
+    {
+        <div class="grid-cell" data-row="@row" data-col="1">
+            <select class="widget-chooser form-control">
+                <option value="">Widget auswählen...</option>
+                <option value="Payments">Payments</option>
+                <option value="LastContacts">Letzte Kontakte</option>
+                <option value="Bestsellers">Top Bestsellers</option>
+                <option value="TopCustomers">Top Kunden</option>
+                <option value="CustomerRegistrations">Neuanmeldungen</option>
+                <option value="LatestOrders">Letzte Bestellungen</option>
+            </select>
+        </div>
+    }
 </div>
+
+@section Scripts {
+    <script src="~/Modules/Smartstore.CustomDashboard/wwwroot/Scripts/dashboard.js"></script>
+}

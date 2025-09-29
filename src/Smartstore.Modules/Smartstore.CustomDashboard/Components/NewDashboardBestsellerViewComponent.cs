@@ -1,7 +1,6 @@
 ﻿//using System.Threading.Tasks;
 //using Autofac.Core;
 //using Microsoft.AspNetCore.Mvc;
-//using Smartstore.Admin.Models.Orders;
 //using Smartstore.Core.Checkout.Orders.Reporting;
 //using Smartstore.Core.Data;
 //using Smartstore.Core.Security;
@@ -9,6 +8,7 @@
 //using Smartstore.Web.Components;
 //using System.Linq;
 //using Microsoft.EntityFrameworkCore;
+//using Smartstore.Admin.Models.Orders;
 
 //namespace Smartstore.CustomDashboard.Components
 //{
