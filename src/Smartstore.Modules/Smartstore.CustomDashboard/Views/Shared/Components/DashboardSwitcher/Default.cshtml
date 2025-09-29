@@ -16,7 +16,7 @@
 
         selector.addEventListener('change', async () => {
             const widget = selector.value;
-            const html = await fetch(`/Admin/CustomDashboard/LoadWidget?widgetName=${widget}`)
+            const html = await fetch(`/CustomDashboard/LoadWidget?widgetName=${widget}`)
                 .then(r => r.text());
 
             content.innerHTML = html;

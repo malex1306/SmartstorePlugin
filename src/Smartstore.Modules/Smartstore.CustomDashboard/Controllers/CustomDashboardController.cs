@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Smartstore.CustomDashboard.Components;
 using Smartstore.CustomDashboard.Settings;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Smartstore.Web.Controllers;
 
-namespace Smartstore.CustomDashboard.Controllers
+namespace Smartstore.CustomDashboard.Controllers.Admin
 {
     
-    public class CustomDashboardController : Controller
+    public class CustomDashboardController : AdminController
     {
         private readonly NewContactDashboardViewComponent _newContacts;
         private readonly PaymentStatsDashboardViewComponent _paymentStats;
