@@ -1,8 +1,14 @@
 ﻿@using Smartstore.Core.Web
+﻿@using System.IO
 
 @{
     Layout = "_AdminLayout";
+    var cssPath = @"C:\Users\Marcel Alexandre\source\repos\smartstore\src\Smartstore.Modules\Smartstore.CustomDashboard\wwwroot\admin\_custom-dashboard.css";
+    var cssContent = System.IO.File.ReadAllText(cssPath);
 }
+<style>
+    @Html.Raw(cssContent)
+</style>
 
 <div class="section-header">
     <div class="title">
@@ -12,7 +18,6 @@
 </div>
 
 <div class="dashboard-grid">
-    @* Das ist das leere Raster, in das die Widgets geladen werden *@
     @for (int row = 1; row <= 5; row++)
     {
         <div class="grid-cell" data-row="@row" data-col="1">
@@ -30,5 +35,5 @@
 </div>
 
 @section Scripts {
-    <script src="~/Modules/Smartstore.CustomDashboard/wwwroot/Scripts/dashboard.js"></script>
+    <script src="@Url.Content("~/Plugins/Smartstore.CustomDashboard/Scripts/dashboard.js")"></script>
 }
