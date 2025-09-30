@@ -29,4 +29,7 @@
     <LocaleResource Name="Dashboard.Replay">
         <Value>Antworten</Value>
     </LocaleResource>
+    <LocaleResource Name="Dashboard.Change">
+        <Value>Ändern</Value>
+    </LocaleResource>
 </Language>

@@ -9,6 +9,7 @@
       <Content Remove="Views\Shared\Components\NewNewsFeed\Default.cshtml" />
       <Content Remove="wwwroot\admin\_custom-dashboard-template.css" />
       <Content Remove="wwwroot\admin\_dashboard.css" />
+      <Content Remove="wwwroot\Scripts\dashboard.js" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\..\Smartstore.Web\Smartstore.Web.csproj">
