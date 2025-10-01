@@ -17,9 +17,9 @@ namespace Smartstore.CustomDashboard
                 o.Filters.AddEndpointFilter<PaymentStatsDashboardFilter, HomeController>()
                     .ForAction(x => x.Index())
                     .WhenNonAjax();
-                o.Filters.AddEndpointFilter<AdminDashboardActionFilter, HomeController>()
-                    .ForAction(x => x.Index())
-                    .WhenNonAjax();
+                //o.Filters.AddEndpointFilter<AdminDashboardActionFilter, HomeController>()
+                //    .ForAction(x => x.Index())
+                //    .WhenNonAjax();
             });
         }
     }

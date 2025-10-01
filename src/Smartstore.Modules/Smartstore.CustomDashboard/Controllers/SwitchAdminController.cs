@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Smartstore.Core.Configuration;
@@ -17,15 +18,15 @@ namespace Smartstore.CustomDashboard.Controllers
         }
 
         [HttpPost]
-        public IActionResult GetWidgetHtml(string widgetName)
+        public async Task<IActionResult> GetWidgetHtml(string widgetName)
         {
             if (string.IsNullOrEmpty(widgetName))
             {
                 return BadRequest("widgetName fehlt");
             }
 
-            
-            _settingService.ApplySettingAsync("Dashboard.LastSelectedWidget", widgetName);
+            // Setting speichern und awaiten, um DbContext-Fehler zu vermeiden
+            await _settingService.ApplySettingAsync("Dashboard.LastSelectedWidget", widgetName);
 
             string componentName = widgetName switch
             {
@@ -46,7 +47,6 @@ namespace Smartstore.CustomDashboard.Controllers
 
             try
             {
-                
                 return ViewComponent(componentName);
             }
             catch (Exception ex)
@@ -56,11 +56,11 @@ namespace Smartstore.CustomDashboard.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveLastWidget(string widgetName)
+        public async Task<IActionResult> SaveLastWidget(string widgetName)
         {
             if (!string.IsNullOrEmpty(widgetName))
             {
-                _settingService.ApplySettingAsync("Dashboard.LastSelectedWidget", widgetName);
+                await _settingService.ApplySettingAsync("Dashboard.LastSelectedWidget", widgetName);
             }
             return Ok();
         }

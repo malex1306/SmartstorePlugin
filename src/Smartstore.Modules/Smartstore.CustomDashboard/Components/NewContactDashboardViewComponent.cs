@@ -49,7 +49,7 @@ namespace Smartstore.CustomDashboard.Components
                 })
                 .ToListAsync();
 
-            return View("Default", contacts);
+            return View("~/Modules/Smartstore.CustomDashboard/Views/Shared/Components/NewContactDashboard/Default.cshtml", contacts);
         }
     }
 

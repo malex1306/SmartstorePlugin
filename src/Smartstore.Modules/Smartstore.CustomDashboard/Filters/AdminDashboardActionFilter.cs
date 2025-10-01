@@ -36,6 +36,8 @@ namespace Smartstore.CustomDashboard.Filters
 
             //myViewData.Model = publicInfoModel;
 
+            //TODO PublicInfoModel setzen und per Postback über Helloworld anzeigen lassen
+
             context.Result = new PartialViewResult
             {
                 //ViewData = myViewData,

@@ -7,13 +7,15 @@ using Smartstore.Core.Configuration;
 
 namespace Smartstore.CustomDashboard.Settings
 {
-        public class PaymentStatsSettings : ISettings
-        {
-            public bool Enabled { get; set; } = true;
-            public bool EnabledEmail { get; set; } = true;
-            public string IncompleteOrdersPosition { get; set; }
-            public string PaymentsPosition { get; set; }
-            public string LastContactsPosition { get; set; }
-            public string NewsFeedPosition { get; set; }
+    // TODO: Rename to CustomDashboardSettings
+    public class PaymentStatsSettings : ISettings
+    {
+        // TODO: Reactivate
+        public bool Enabled { get; set; } = true;
+        public bool EnabledEmail { get; set; } = true;
+        public string IncompleteOrdersPosition { get; set; }
+        public string PaymentsPosition { get; set; }
+        public string LastContactsPosition { get; set; }
+        public string NewsFeedPosition { get; set; }
     }
 }

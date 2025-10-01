@@ -4,6 +4,19 @@
 @inject ISettingService settingService
 
 @{
+    // TODO: - Correct path below
+    //   - Get rid of service injection use PublicInfoModel instead. 
+    //   - Rename file to _CustomDashboard.cshtml
+    //   - Get rid of duplicate settings in PaymentStatsAdmin/Configure.cshtml
+    //   - Get rid of FeedModel
+    //   - One Controller AdminCustomDashboard with all needed actions
+    //   - Widget zone immmer mit _ statt -
+
+    // json Metadaten in wwwroot/adminwidgets.json
+    // Liste von Admin-Widgets 
+    // Properties = Systemname, MinWidth in Cols
+    // TODO: Deserialize once and display in dropdown
+
     Layout = "_AdminLayout";
 
     
@@ -11,6 +24,7 @@
     var cssContent = System.IO.File.ReadAllText(cssTemplatePath);
 
     
+    // TODO: Remove after correct implementation
     var incompleteOrdersPos = settingService.GetSettingByKey<string>("IncompleteOrdersPosition", "");
     var paymentsPos = settingService.GetSettingByKey<string>("PaymentsPosition", "");
     var lastContactsPos = settingService.GetSettingByKey<string>("LastContactsPosition", "");
@@ -34,10 +48,27 @@
 
     
     var lastSelectedWidget = settingService.GetSettingByKey<string>("Dashboard.LastSelectedWidget", "Payments");
+
+    string componentName = lastSelectedWidget switch
+    {
+        "Payments" => "PaymentStatsDashboard",
+        "LastContacts" => "NewContactDashboard",
+        "Bestsellers" => "BestsellerDashboard",
+        "TopCustomers" => "TopCustomerDashboard",
+        "CustomerRegistrations" => "CustomerRegistrationDashboard",
+        "LatestOrders" => "LatestOrderDashboard",
+        "StoreStatistics" => "StoreStatisticsDashboard",
+        _ => "PaymentStatsDashboard"
+    };
 }
 
 <style>
-    @Html.Raw(cssContent)
+    .report-incomplete-orders {
+        @incompleteOrdersPos
+    }
+    .report-last-contacts {
+        @lastContactsPos
+    }
 </style>
 
 <div class="section-header">
@@ -55,8 +86,7 @@
     </div>
 
     <div class="report-payments">
-        @* Aktuelles Widget laden *@
-        @await Component.InvokeAsync(lastSelectedWidget)
+        <zone name="report-bestsellers"></zone>
     </div>
 
     <div class="report-last-contacts">
