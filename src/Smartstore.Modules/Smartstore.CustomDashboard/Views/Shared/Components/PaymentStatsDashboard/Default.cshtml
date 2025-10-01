@@ -1,18 +1,35 @@
 ﻿@model IEnumerable<Smartstore.CustomDashboard.Components.PaymentMethodStat>
 
-    <div class="report-box"></div>
-<div class="report">
-    <div class="report-title">
-        <i class="fa fa-credit-card"></i> <span>@T("Plugins.CustomDashboard.Admin.Dashboard.PaymentMethods")</span>
+<div class="report widget-report">
+    <div class="report-title-row">
+        <div class="report-title">@T("Plugins.CustomDashboard.Dashboard.PaymentMethods")</div>
+    </div>
+
+    <div class="report-actions">
+        <button class="btn btn-clean btn-sm dropdown-toggle" type="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-ellipsis-v"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="#" data-widget="Payments">Zahlungen</a>
+            <a class="dropdown-item" href="#" data-widget="LastContacts">Letzte Kontakte</a>
+            <a class="dropdown-item" href="#" data-widget="Bestsellers">Top Bestseller</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item disabled" href="#">Einstellungen (nicht implementiert)</a>
+        </div>
     </div>
 
     <div class="report-body">
-        <div class="table-responsive table-dashboard table-hover table-prevent-overflow">
-            <table class="table small">
+        <div class="table-responsive table-dashboard">
+            <table class="table table-3 small table-hover table-prevent-overflow">
                 <thead>
                     <tr>
-                        <th class="display-row" style="width:75%">@T("Plugins.CustomDashboard.Admin.Dashboard.Method")</th>
-                        <th class="display-row text-center" style="width:25%">@T("Plugins.CustomDashboard.Admin.Dashboard.Count")</th>
+                        <th class="display-row">
+                            @T("Plugins.CustomDashboard.Dashboard.Payments")
+                        </th>
+                        <th class="display-row text-center">
+                            @T("Plugins.CustomDashboard.Dashboard.PaymentsCount")
+                        </th>
                     </tr>
                 </thead>
                 <tbody>

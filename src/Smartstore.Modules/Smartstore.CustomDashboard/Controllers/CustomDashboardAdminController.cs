@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using Smartstore.CustomDashboard.Models;
 using Smartstore.Core.Configuration;
 using Smartstore.Web.Controllers;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 namespace Smartstore.CustomDashboard.Controllers
 {
     [Area("Admin")]
-    public class PaymentStatsAdminController : AdminController
+    public class CustomDashboardAdminController : AdminController
     {
         private readonly ISettingService _settingService;
 
-        public PaymentStatsAdminController(ISettingService settingService)
+        public CustomDashboardAdminController(ISettingService settingService)
         {
             _settingService = settingService;
         }
@@ -22,8 +23,7 @@ namespace Smartstore.CustomDashboard.Controllers
         {
             var model = new ConfigurationModel
             {
-                Enabled = _settingService.GetSettingByKey<bool>("CustomDashboard.Enabled", false),
-                IncompleteOrdersPosition = _settingService.GetSettingByKey<string>("IncompleteOrdersPosition", ""),
+                IncompleteOrdersPosition = _settingService.GetSettingByKey<string>("IncompleteOrdersPosition", "grid-column: 1/13; grid-row: 1/2;"),
                 PaymentsPosition = _settingService.GetSettingByKey<string>("PaymentsPosition", "grid-column: 1/13; grid-row: 2/3;"),
                 LastContactsPosition = _settingService.GetSettingByKey<string>("LastContactsPosition", ""),
                 NewsFeedPosition = _settingService.GetSettingByKey<string>("NewsFeedPosition", "grid-column: 1/13; grid-row: 8/9;"),

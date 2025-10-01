@@ -1,7 +1,38 @@
-﻿@{
+﻿@using System.IO
+@using Smartstore.Core.Configuration
+@using Smartstore.Core.Web
+@inject ISettingService settingService
+
+@{
     Layout = "_AdminLayout";
-    Assets.BodyAttributes.AppendCssClass("minimal-admin");
+
+    var cssTemplatePath = @"C:\Users\Marcel Alexandre\source\repos\smartstore\src\Smartstore.Modules\Smartstore.CustomDashboard\wwwroot\admin\_custom-dashboard-template.css";
+    var cssContent = System.IO.File.ReadAllText(cssTemplatePath);
+
+    var incompleteOrdersPos = settingService.GetSettingByKey<string>("IncompleteOrdersPosition", "");
+    var paymentsPos = settingService.GetSettingByKey<string>("PaymentsPosition", "");
+    var lastContactsPos = settingService.GetSettingByKey<string>("LastContactsPosition", "");
+    var newsFeedPos = settingService.GetSettingByKey<string>("NewsFeedPosition", "");
+    var bestsellersPos = settingService.GetSettingByKey<string>("BestsellersPosition", "");
+    var topCustomersPos = settingService.GetSettingByKey<string>("TopCustomersPosition", "");
+    var customerRegeistrationPos = settingService.GetSettingByKey<string>("CustomerRegistrationsPosition", "");
+    var latestOrdersPos = settingService.GetSettingByKey<string>("LatestOrdersPosition", "");
+    var storeStatisticsPos = settingService.GetSettingByKey<string>("StoreStatisticsPosition", "");
+
+    cssContent = cssContent.Replace("__INCOMPLETE_ORDERS_POSITION__", incompleteOrdersPos);
+    cssContent = cssContent.Replace("__PAYMENTS_POSITION__", paymentsPos);
+    cssContent = cssContent.Replace("__LAST_CONTACTS_POSITION__", lastContactsPos);
+    cssContent = cssContent.Replace("__NEWS_FEED_POSITION__", newsFeedPos);
+    cssContent = cssContent.Replace("__BESTSELLERS_POSITION__", bestsellersPos);
+    cssContent = cssContent.Replace("__TOP_CUSTOMERS_POSITION__", topCustomersPos);
+    cssContent = cssContent.Replace("__CUSTOMER_REGISTRATIONS_POSITION__", customerRegeistrationPos);
+    cssContent = cssContent.Replace("__LATEST_ORDERS_POSITION__", latestOrdersPos);
+    cssContent = cssContent.Replace("__STORE_STATISTICS_POSITION__", storeStatisticsPos);
 }
+
+<style>
+    @Html.Raw(cssContent)
+</style>
 
 <div class="section-header">
     <div class="title">
@@ -13,30 +44,82 @@
 <div class="dashboard-grid">
     <zone name="admin_dashboard_top"></zone>
 
-    @* <div class="report-incomplete-orders">
+    <div class="report-incomplete-orders">
         @await Component.InvokeAsync("DashboardIncompleteOrders")
-    </div> *@
-    <div class="report-orders">
-        @await Component.InvokeAsync("DashboardOrders")
     </div>
+
+    <div class="report-payments">
+        <zone name="report-bestsellers"></zone>
+    </div>
+
+    <div class="report-last-contacts">
+        <zone name="report-contacts"></zone>
+    </div>
+
     <div class="report-bestsellers">
         @await Component.InvokeAsync("DashboardBestsellers")
     </div>
+
     <div class="report-top-customers">
         @await Component.InvokeAsync("DashboardTopCustomers")
     </div>
+
     <div class="report-customer-registrations">
         @await Component.InvokeAsync("DashboardRegisteredCustomers")
     </div>
+
     <div class="report-latest-orders">
         @await Component.InvokeAsync("DashboardLatestOrders")
     </div>
+
     <div class="report-store-statistics">
         <partial name="~/Areas/Admin/Views/Store/StoreDashboardReport.cshtml" />
     </div>
+
     <div class="news-feed">
         @await Component.InvokeAsync("NewsFeed")
     </div>
 
     <zone name="admin_dashboard_bottom"></zone>
 </div>
+
+<script>
+    $(document).on('click', '.report-actions .dropdown-item', function (e) {
+        e.preventDefault();
+
+        var $link = $(this);
+        var newWidgetName = $link.data('widget');
+        var $widgetCard = $link.closest('.report');
+
+        if (newWidgetName && $widgetCard.length) {
+            $widgetCard.addClass('loading');
+
+            $.ajax({
+                url: '@Url.Action("GetWidgetHtml", "SwitchAdmin")',
+                type: 'POST',
+                data: { widgetName: newWidgetName },
+                success: function (response) {
+                    var $newReport = $(response);
+
+                   
+                    var $newTitle = $newReport.find('.report-title');
+                    if ($newTitle.length) {
+                        $widgetCard.find('.report-title').replaceWith($newTitle);
+                    }
+
+                    
+                    var $newBody = $newReport.find('.report-body');
+                    if ($newBody.length) {
+                        $widgetCard.find('.report-body').replaceWith($newBody);
+                    }
+                },
+                error: function () {
+                    $widgetCard.find('.report-body').html('<div class="alert alert-danger">AJAX-Fehler: Server nicht erreichbar.</div>');
+                },
+                complete: function () {
+                    $widgetCard.removeClass('loading');
+                }
+            });
+        }
+    });
+</script>
