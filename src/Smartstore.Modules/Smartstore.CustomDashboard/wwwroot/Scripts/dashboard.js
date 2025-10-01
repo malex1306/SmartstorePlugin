@@ -1,38 +1,38 @@
-﻿$(document).on('click', '.report-actions .dropdown-item', function (e) {
-    e.preventDefault();
+﻿//$(document).on('click', '.report-actions .dropdown-item', function (e) {
+//    e.preventDefault();
 
-    var $link = $(this);
-'
-    var newWidgetName = $link.data('widget');
-
-    
-    var $widgetCard = $link.closest('.report');
+//    var $link = $(this);
+//'
+//    var newWidgetName = $link.data('widget');
 
     
-    if (newWidgetName && $widgetCard.length) {
+//    var $widgetCard = $link.closest('.report');
 
-        $widgetCard.addClass('loading');
+    
+//    if (newWidgetName && $widgetCard.length) {
+
+//        $widgetCard.addClass('loading');
 
         
-        $.ajax({
-            url: '@Url.Action("GetWidgetHtml", "SwitchAdmin")',
-            type: 'GET',
-            data: { widgetName: newWidgetName },
-            success: function (response) {
-                if (response.widgetHtml) {
+//        $.ajax({
+//            url: '@Url.Action("GetWidgetHtml", "SwitchAdmin")',
+//            type: 'GET',
+//            data: { widgetName: newWidgetName },
+//            success: function (response) {
+//                if (response.widgetHtml) {
                     
-                    $widgetCard.html(response.widgetHtml);
-                } else if (response.error) {
+//                    $widgetCard.html(response.widgetHtml);
+//                } else if (response.error) {
                     
-                    $widgetCard.html('<div class="alert alert-danger">Fehler: ' + response.error + '</div>');
-                }
-            },
-            error: function (xhr, status, error) {
-                $widgetCard.html('<div class="alert alert-danger">AJAX-Fehler: Server nicht erreichbar.</div>');
-            },
-            complete: function () {
-                $widgetCard.removeClass('loading');
-            }
-        });
-    }
-});
+//                    $widgetCard.html('<div class="alert alert-danger">Fehler: ' + response.error + '</div>');
+//                }
+//            },
+//            error: function (xhr, status, error) {
+//                $widgetCard.html('<div class="alert alert-danger">AJAX-Fehler: Server nicht erreichbar.</div>');
+//            },
+//            complete: function () {
+//                $widgetCard.removeClass('loading');
+//            }
+//        });
+//    }
+//});

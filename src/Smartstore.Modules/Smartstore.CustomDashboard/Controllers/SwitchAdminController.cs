@@ -1,29 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Smartstore.Web.Controllers;
 
 namespace Smartstore.CustomDashboard.Controllers
 {
     public class SwitchAdminController : AdminController
     {
-        private readonly IViewComponentHelper _viewComponentHelper;
-
-        public SwitchAdminController(IViewComponentHelper viewComponentHelper)
-        {
-                       _viewComponentHelper = viewComponentHelper;
-        }
-
         [Authorize]
-        public async Task<IActionResult> GetWidgetHtml(string widgetName)
+        [HttpPost]
+        public IActionResult GetWidgetHtml(string widgetName)
         {
-            string widgetHtml = null;
+            if (string.IsNullOrEmpty(widgetName))
+            {
+                return BadRequest("widgetName fehlt");
+            }
 
             string componentName = widgetName switch
             {
@@ -36,26 +27,21 @@ namespace Smartstore.CustomDashboard.Controllers
                 "StoreStatistics" => "StoreStatisticsDashboard",
                 _ => null
             };
+
             if (componentName == null)
             {
-                return Json(new { error = "Widget not found" });
+                return Content("<div class='alert alert-danger'>Widget not found</div>", "text/html");
             }
 
             try
             {
-                using (var writer = new StringWriter())
-                {
-                    var result = await _viewComponentHelper.InvokeAsync(componentName);
-                    result.WriteTo(writer, System.Text.Encodings.Web.HtmlEncoder.Default);
-                    widgetHtml = writer.ToString();
-                }
+                
+                return ViewComponent(componentName);
             }
             catch (Exception ex)
             {
-                return Json(new { error = $"Error rendering widget: {ex.Message}" });
+                return Content($"<div class='alert alert-danger'>Rendering fail {ex.Message}</div>", "text/html");
             }
-
-            return Json(new { widgetHtml = widgetHtml });
         }
     }
 }
