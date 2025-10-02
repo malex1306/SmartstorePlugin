@@ -7,10 +7,6 @@
     <ItemGroup>
       <Content Remove="Views\Shared\Components\NewContactDashboard\Default.cshtml" />
       <Content Remove="Views\Shared\Components\NewNewsFeed\Default.cshtml" />
-      <Content Remove="wwwroot\admin\admin.scss" />
-      <Content Remove="wwwroot\admin\_custom-dashboard-template.css" />
-      <Content Remove="wwwroot\admin\_dashboard.css" />
-      <Content Remove="wwwroot\Scripts\dashboard.js" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\..\Smartstore.Web\Smartstore.Web.csproj">
@@ -19,11 +15,5 @@
             <CopyLocalSatelliteAssemblies>False</CopyLocalSatelliteAssemblies>
         </ProjectReference>
         <ProjectReference Include="..\..\Smartstore.Core\Smartstore.Core.csproj" />
-    </ItemGroup>
-    <ItemGroup>
-      <Content Update="wwwroot\admin\_custom-dashboard.scss">
-        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      </Content>
     </ItemGroup>
 </Project>

@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Smartstore.Admin.Components;
-using Smartstore.Core.Checkout.Payment;
-using Smartstore.Core.Data;
-using Smartstore.Core.Configuration;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol.Plugins;
+using Smartstore.Admin.Components;
+using Smartstore.Core.Checkout.Payment;
+using Smartstore.Core.Configuration;
+using Smartstore.Core.Data;
 using Smartstore.Core.Security;
 using Smartstore.CustomDashboard.Settings;
 
@@ -74,7 +75,7 @@ namespace Smartstore.CustomDashboard.Components
                         : stat.MethodSystemName);
             }
 
-            return View(stats);
+            return View("~/Modules/Smartstore.CustomDashboard/Views/Shared/Components/PaymentStatsDashboard/Default.cshtml", stats);
         }
 
     }

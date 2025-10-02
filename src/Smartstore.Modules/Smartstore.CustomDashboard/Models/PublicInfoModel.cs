@@ -1,38 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Smartstore.CustomDashboard.Models
 {
     public class PublicInfoModel
     {
-        public List<BreakPoints> BreakPoints { get; set; } = [];
+        public List<BreakPoint> BreakPoints { get; set; } = new();
     }
 
-    public class BreakPoints
+    public class BreakPoint
     {
-        public List<WidgetLine> WidgetLines { get; set; } = [];
+        public List<WidgetLine> WidgetLines { get; set; } = new();
     }
 
     public class WidgetLine
     {
-        public List<WidgetItem> Widgets { get; set; } = [];
+        [JsonPropertyName("WidgetItem")]
+        public List<WidgetItem> Widgets { get; set; } = new();
     }
 
     public class WidgetItem
     {
         public string SystemName { get; set; }
-        // TODO: Really?
         public string ViewComponentName { get; set; }
-
-        // TODO: Either position or display order > Decide!
+        public string Namespace { get; set; }
         public string Position { get; set; }
         public int DisplayOrder { get; set; }
-
-
-        // TODO: Really? 
         public object ViewComponentArguments { get; set; }
     }
 }
+

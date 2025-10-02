@@ -1,0 +1,54 @@
+{
+  "BreakPoints": [
+    {
+      "WidgetLines": [
+        {
+          "WidgetItem": [
+            {
+              "SystemName": "IncompleteOrders",
+              "ViewComponentName": "DashboardIncompleteOrders",
+              "Position": "report-incomplete-orders",
+              "DisplayOrder": 1
+            },
+            {
+              "SystemName": "NewsFeed",
+              "ViewComponentName": "NewsFeed",
+              "Position": "news-feed",
+              "DisplayOrder": 2
+            },
+            {
+              "SystemName": "Bestsellers",
+              "ViewComponentName": "DashboardBestsellers",
+              "Position": "report-bestsellers",
+              "DisplayOrder": 3
+            },
+            {
+              "SystemName": "TopCustomers",
+              "ViewComponentName": "DashboardTopCustomers",
+              "Position": "report-top-customers",
+              "DisplayOrder": 4
+            },
+            {
+              "SystemName": "CustomerRegistrations",
+              "ViewComponentName": "DashboardRegisteredCustomers",
+              "Position": "report-customer-registrations",
+              "DisplayOrder": 5
+            },
+            {
+              "SystemName": "LatestOrders",
+              "ViewComponentName": "DashboardLatestOrders",
+              "Position": "report-latest-orders",
+              "DisplayOrder": 6
+            },
+            {
+              "SystemName": "Orders",
+              "ViewComponentName": "DashboardOrders",
+              "Position": "report-orders",
+              "DisplayOrder": 7
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
